@@ -12,6 +12,7 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   plugins: [
-    new CleanWebpackPlugin(`${path}/bundle.*.js`)
+    new CleanWebpackPlugin(`${path}/bundle.*.js`),
+    
   ],
 }
