@@ -1,0 +1,10 @@
+header {
+  font-size: 2em;
+  background-color: indigo;
+  color: lightgrey;
+}
+
+input {
+  width: 60%;
+  height: 1.5em;
+}

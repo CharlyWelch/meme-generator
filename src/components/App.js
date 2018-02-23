@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './App.css';
 
 export default class App extends Component {
 
@@ -6,22 +7,31 @@ export default class App extends Component {
     super();
 
     this.state = {
-      name: 'Porland'
+      phrase: 'Does it make you feel better?',
+      image: [], 
     };
   }
 
-  handleClick() {
-    this.setState({ name: 'Seattle' });
+  handlePhraseChange({ target }) {
+    this.setState({ phrase: target.value });
   }
 
   render() {
-    const { name } = this.state;
-
+    const { phrase } = this.state;
+    const { image } = this.state;
+    
     return (
-      <div onClick={() => this.handleClick()}>
-        Hello <span>{name}</span>
-      </div>
+      
+      <div className="meme-gen">
 
+        <header>Meme Generator</header>
+
+        <div><input onChange={event => this.handlePhraseChange(event)}/></div>
+        <section>
+          {phrase}
+        </section>
+
+      </div>
     );
 
   }
