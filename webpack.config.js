@@ -18,4 +18,14 @@ module.exports = {
     new CleanWebpackPlugin(`${path}/bundle.*.js`),
     new HtmlPlugin(),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: 'node_modules'
+      }
+
+    ]
+  }
 };
