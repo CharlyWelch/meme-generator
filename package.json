@@ -3,9 +3,16 @@
   "version": "1.0.0",
   "description": "An exercise for Alchemy Code Lab",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
   "devDependencies": {
+    "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.18",
     "eslint": "^4.18.1",
     "eslint-plugin-babel": "^4.1.2",
