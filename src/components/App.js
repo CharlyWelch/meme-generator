@@ -67,7 +67,7 @@ export default class App extends Component {
         <p>Add image address:</p>
         <div><input placeholder="Paste Image URL" onChange={this.handleImage}/></div>
         
-        <p>Or Choose a file:</p>
+        <p>... or choose a file:</p>
         <div className="uploader"><input type="file" onChange={this.handleUpload}/></div>
 
         <p>What do you want to say?</p>
