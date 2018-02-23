@@ -16,16 +16,35 @@ module.exports = {
   devtool: 'inline-source-map',
   plugins: [
     new CleanWebpackPlugin(`${path}/bundle.*.js`),
-    new HtmlPlugin(),
+    new HtmlPlugin({ template: './src/index.html' }),
   ],
   module: {
     rules: [
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: 'node_modules'
-      }
-
+        exclude: '/node_modules/'
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+            options: { sourceMap: true }
+          },
+          {
+            loader: 'css-loader',
+            options: { 
+              sourceMap: true,
+              importLoaders: 1 
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: { sourceMap: true }
+          }
+        ]
+      },
     ]
   }
 };
