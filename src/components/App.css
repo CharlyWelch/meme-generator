@@ -14,23 +14,20 @@ section {
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: 400px;
+  height: 100%;
   width: 100%;
   margin: auto;
-  margin-top: 75px;
-
 
   background: 
     url()
     no-repeat
     cover
-
 }
 
 .container {
   width: 500px;
-  
-
+  height: 500px;
+  margin: 0 auto;
 }
 
 input {
