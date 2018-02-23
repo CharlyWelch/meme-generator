@@ -20,6 +20,7 @@ export default class App extends Component {
     this.handleColor = this.handleColor.bind(this);
     this.handleSize = this.handleSize.bind(this);
     this.handleSave = this.handleSave.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
 
   }
 
@@ -29,6 +30,15 @@ export default class App extends Component {
 
   handleImage({ target }) {
     this.setState({ image: target.value });
+  }
+
+  handleUpload({ target }) {
+    const reader = new FileReader;
+
+    reader.readAsDataURL(target.files[0]);
+    reader.onload = () => {
+      this.setState({ image: reader.result });
+    };
   }
 
   handleColor({ target }) {
@@ -53,13 +63,18 @@ export default class App extends Component {
       <div className="meme-gen">
 
         <header>Meme Generator</header>
+        
+        <p>Add image address:</p>
+        <div><input placeholder="Paste Image URL" onChange={this.handleImage}/></div>
+        
+        <p>Or Choose a file:</p>
+        <div className="uploader"><input type="file" onChange={this.handleUpload}/></div>
 
+        <p>What do you want to say?</p>
         <div><input placeholder="Enter your phrase" onChange={this.handlePhraseChange}/></div>
         
-        <div><input placeholder="Paste Image URL" onChange={this.handleImage}/></div>
-
+        <p>Change text size and color: </p>
         <div><input className="color" placeholder="Text Color" onChange={this.handleColor}/></div>
-
         <div><input className="text-size" placeholder="Text Size" onChange={this.handleSize}/></div>
 
         <div className="container">

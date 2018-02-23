@@ -6,7 +6,22 @@ header {
 
 input {
   width: 60%;
-  height: 1.5em;
+  height: 1.75em;
+}
+
+.text-size {
+  margin-bottom: 50px;
+}
+
+p {
+  font-size: .5em;
+}
+
+.uploader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 section {
@@ -35,7 +50,7 @@ input {
 }
 
 .save {
-  margin: 0 auto;
+  margin: 20 auto;
   display: flex;
   align-items: center;
   justify-content: center;
