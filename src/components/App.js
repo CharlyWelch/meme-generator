@@ -21,7 +21,6 @@ export default class App extends Component {
     this.handleSize = this.handleSize.bind(this);
     this.handleSave = this.handleSave.bind(this);
 
-
   }
 
   handlePhraseChange({ target }) {
@@ -42,11 +41,10 @@ export default class App extends Component {
 
   handleSave(){
     dom2image.toBlob(this.section).then(blob => {
-      fileSaver.saveAs(blob, 'meme.png');
+      fileSaver.saveAs(blob, 'myMeme.png');
     });
   }
     
-
   render() {
     const { phrase, image, size, color } = this.state;
 
@@ -60,22 +58,23 @@ export default class App extends Component {
         
         <div><input placeholder="Paste Image URL" onChange={this.handleImage}/></div>
 
-        <div><input placeholder="Text Color" onChange={this.handleColor}/></div>
+        <div><input className="color" placeholder="Text Color" onChange={this.handleColor}/></div>
 
-        <div><input placeholder="Text Size" onChange={this.handleSize}/></div>
+        <div><input className="text-size" placeholder="Text Size" onChange={this.handleSize}/></div>
 
-
-        <section className="meme"
-          ref={node => this.div = node}
-          style={{ 
-            backgroundImage: image ? `url(${image})` : null,
-            color: color,
-            fontSize: `${size}px`,
-          }}>
-          {phrase}
-        </section>
-
-        <div><button onClick={this.handleSave}>Save Your Meme</button></div>
+        <div className="container">
+          <section className="meme"
+            ref={node => this.section = node}
+            style={{ 
+              backgroundImage: image ? `url(${image})` : null,
+              color: color,
+              fontSize: `${size}px`,
+            }}>
+            {phrase}
+          </section>
+        </div>
+        
+        <section className="save"><button onClick={this.handleSave}>Save Your Meme</button></section>
 
       </div>
     );
