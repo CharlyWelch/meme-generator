@@ -7,28 +7,41 @@ export default class App extends Component {
     super();
 
     this.state = {
-      phrase: 'Does it make you feel better?',
-      image: [], 
+      phrase: 'Feel better?',
+      image: 'url(http://img.izismile.com/img/img5/20121212/640/awe_inspiring_photos_2012_640_01.jpg)', 
     };
+
+    this.handlePhraseChange = this.handlePhraseChange.apply.bind(this);
+    this.handleImage = this.handleImage.apply.bind(this);
+
   }
 
   handlePhraseChange({ target }) {
     this.setState({ phrase: target.value });
   }
 
+  handleImage({ target }) {
+    this.setState({ image: target.value });
+  }
+
   render() {
-    const { phrase } = this.state;
-    const { image } = this.state;
-    
+    const { phrase, image } = this.state;
+
     return (
       
       <div className="meme-gen">
 
         <header>Meme Generator</header>
 
-        <div><input onChange={event => this.handlePhraseChange(event)}/></div>
-        <section>
-          {phrase}
+        <div><input placeholder="Enter your phrase" onChange={this.handlePhraseChange}/></div>
+        
+        <div><input placeholder="Paste Image URL"/></div>
+        <button onClick={this.handleImage}>Upload Your Image</button>
+
+        <section style={{ 
+          backgroundImage: image ? `url(${image})` : null
+        }}>
+          <pre>{phrase}</pre>
         </section>
 
       </div>
