@@ -11,8 +11,8 @@ export default class App extends Component {
       image: 'url(http://img.izismile.com/img/img5/20121212/640/awe_inspiring_photos_2012_640_01.jpg)', 
     };
 
-    this.handlePhraseChange = this.handlePhraseChange.apply.bind(this);
-    this.handleImage = this.handleImage.apply.bind(this);
+    this.handlePhraseChange = this.handlePhraseChange.bind(this);
+    this.handleImage = this.handleImage.bind(this);
 
   }
 
@@ -35,8 +35,8 @@ export default class App extends Component {
 
         <div><input placeholder="Enter your phrase" onChange={this.handlePhraseChange}/></div>
         
-        <div><input placeholder="Paste Image URL"/></div>
-        <button onClick={this.handleImage}>Upload Your Image</button>
+        <div><input placeholder="Paste Image URL" onChange={this.handleImage}/></div>
+        {/* <button onClick={this.handleImage}>Upload Your Image</button> */}
 
         <section style={{ 
           backgroundImage: image ? `url(${image})` : null

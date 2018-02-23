@@ -8,3 +8,21 @@ input {
   width: 60%;
   height: 1.5em;
 }
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 400px;
+  width: 400px;
+  margin: auto;
+  margin-top: 75px;
+
+
+  background: 
+    url()
+    no-repeat
+    cover
+
+}
